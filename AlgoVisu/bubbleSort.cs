@@ -6,18 +6,19 @@ using System.Threading.Tasks;
 
 namespace AlgoVisu
 {
-    internal class algos
+    internal class bubbleSort
     {
-        public void bubble(int[] values)
+        public void Sort(int[] values)
         {
             bool swapped = true;
             int n = values.Length;
 
             // Repeat while values are being swapped
-            // Sorts from smallest to biggest
-            while (swapped){
+            // Sorts from left to right
+            while (swapped)
+            {
                 swapped = false;
-                for (int i = 0; i < n -1; i++)
+                for (int i = 0; i < n - 1; i++)
                 {
                     if (values[i] > values[i + 1])
                     {
@@ -30,6 +31,5 @@ namespace AlgoVisu
                 n = n - 1;
             }
         }
-        public void 
     }
 }

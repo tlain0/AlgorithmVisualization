@@ -1,59 +1,62 @@
 ﻿using AlgoVisu;
 using System.Linq;
 using Raylib_cs;
+using System.Globalization;
 
 namespace HelloWorld;
 
-class Program
+class NumList
 {
-    private static int[] genArray()
-    {
+    public int[] shuffledArray;
+
+    public NumList() {
         int[] values = new int[10000];
-        
+
         for (int i = 0; i < values.Length; i++)
         {
             values[i] = i;
         }
 
         var rng = new Random();
-        var shuffledArray = values.OrderBy(e => rng.NextDouble()).ToArray();
-
-        /*foreach (int i in shuffledArray)
-        {
-            Console.WriteLine(i);
-        }*/
-
-        return shuffledArray;
+        shuffledArray = values.OrderBy(e => rng.NextDouble()).ToArray();
     }
-
-    public static void Main()
+    public void Print()
     {
-        algos sort = new algos();
-        int[] values = genArray();
-        sort.bubble(values);
-       
-        foreach (int i in values)
+        foreach (int value in shuffledArray)
         {
-            Console.WriteLine(i);
+            Console.WriteLine(value);
         }
     }
 }
 
 
-
-
-
-/*'
-Raylib.InitWindow(800, 480, "Hello World");
-while (!Raylib.WindowShouldClose())
+class Program
 {
-    Raylib.BeginDrawing();
-    Raylib.ClearBackground(Color.WHITE);
-    Raylib.DrawText("Hello, world!", 12, 12, 20, Color.BLACK);
+    public static void Main()
+    {
+        
+        // RAYLIB SETUP
+        const int windowHeight = 480;
+        const int windowWidth = 800;
+        Raylib.InitWindow(windowWidth, windowHeight, "AlgoVisu");
+        Raylib.SetTargetFPS(60);
 
+        // SETUP
+        NumList numbers = new();
+        selectionSort selectionSort = new();
+        numbers.Print();
 
-    Raylib.EndDrawing();;
+        
+        while (!Raylib.WindowShouldClose())
+        {
+            Raylib.BeginDrawing();
+            Raylib.ClearBackground(Color.WHITE);
+            Raylib.DrawText("Hello, world!", 12, 12, 20, Color.BLACK);
+
+            // SORTING
+            selectionSort.Sort(numbers.shuffledArray);
+            Raylib.EndDrawing(); ;
+        }
+        Raylib.CloseWindow();
+    }
 }
-
-Raylib.CloseWindow();
-*/
