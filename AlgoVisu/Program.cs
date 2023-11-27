@@ -10,11 +10,11 @@ class NumList
     public int[] shuffledArray;
 
     public NumList() {
-        int[] values = new int[10000];
+        int[] values = new int[100];
 
         for (int i = 0; i < values.Length; i++)
         {
-            values[i] = i;
+            values[i] = i + 1;
         }
 
         var rng = new Random();
@@ -43,19 +43,13 @@ class Program
 
         // SETUP
         NumList numbers = new();
-        selectionSort selectionSort = new();
-        numbers.Print();
+        selectionSort selectionSort = new selectionSort(numbers.shuffledArray);
 
         
         while (!Raylib.WindowShouldClose())
         {
-            Raylib.BeginDrawing();
-            Raylib.ClearBackground(Color.WHITE);
-            Raylib.DrawText("Hello, world!", 12, 12, 20, Color.BLACK);
-
             // SORTING
             selectionSort.Sort(numbers.shuffledArray);
-            Raylib.EndDrawing(); ;
         }
         Raylib.CloseWindow();
     }
