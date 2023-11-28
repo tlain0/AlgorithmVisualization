@@ -9,11 +9,12 @@ namespace AlgoVisu
 {
     internal class bubbleSort
     {
-        private int[] arr;
-        private Rectangle[] recs;
+        // Declare variables and instantiate the drawing class
+        private int[] arr; // arr[] is the random numbers array
+        private Rectangle[] recs; // recs[] stores positions of the different blocks
         Drawing draw = new Drawing();
 
-
+        // Assigns values to arr and adds empty rectangles to recs[]
         public bubbleSort(int[] shuffledArray)
         {
             arr = shuffledArray;
