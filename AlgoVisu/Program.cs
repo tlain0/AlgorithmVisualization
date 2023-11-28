@@ -44,6 +44,7 @@ class Program
         // SETUP
         NumList numbers = new();
         selectionSort selectionSort = new selectionSort(numbers.shuffledArray);
+        bubbleSort bubbleSort = new bubbleSort(numbers.shuffledArray);
 
         
         while (!Raylib.WindowShouldClose())
