@@ -15,7 +15,7 @@ class NumList
         // Value in brackets is the array length
         int[] values = new int[100];
 
-        // For loop to add cards 1 -> array length
+        // For loop to add cards from 1 to array length
         for (int i = 0; i < values.Length; i++)
         {
             values[i] = i + 1;
@@ -26,7 +26,7 @@ class NumList
         shuffledArray = values.OrderBy(e => rng.NextDouble()).ToArray();
     }
 
-    // Prints out the array's contents ( different lines )
+    // Prints out the array's contents on different lines
     public void Print()
     {
         foreach (int value in shuffledArray)
